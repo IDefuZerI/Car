@@ -1,0 +1,303 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 217 91% 60%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 217 91% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+/* Blueprint Grid */
+.blueprint-grid {
+  background-size: 40px 40px;
+  background-image: linear-gradient(to right, rgba(66, 153, 225, 0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(66, 153, 225, 0.1) 1px, transparent 1px);
+}
+
+.blueprint-grid-dark {
+  background-size: 40px 40px;
+  background-image: linear-gradient(to right, rgba(66, 153, 225, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(66, 153, 225, 0.05) 1px, transparent 1px);
+}
+
+/* Technical Lines */
+.tech-line {
+  position: relative;
+}
+
+.tech-line::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -20px;
+  width: 15px;
+  height: 1px;
+  background-color: rgba(66, 153, 225, 0.5);
+}
+
+.tech-line::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -20px;
+  width: 15px;
+  height: 1px;
+  background-color: rgba(66, 153, 225, 0.5);
+}
+
+/* Blueprint Text */
+.blueprint-text {
+  font-family: var(--font-space);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* Technical Borders */
+.tech-border {
+  border: 1px solid rgba(66, 153, 225, 0.3);
+  box-shadow: 0 0 15px rgba(66, 153, 225, 0.1);
+}
+
+.tech-border-highlight {
+  border: 1px solid rgba(66, 153, 225, 0.5);
+  box-shadow: 0 0 15px rgba(66, 153, 225, 0.2);
+}
+
+/* Glowing Elements */
+.glow-text {
+  text-shadow: 0 0 10px rgba(66, 153, 225, 0.5);
+}
+
+.glow-border {
+  box-shadow: 0 0 15px rgba(66, 153, 225, 0.3);
+}
+
+/* Technical Diagram */
+.diagram-line {
+  stroke: rgba(66, 153, 225, 0.7);
+  stroke-width: 1;
+}
+
+.diagram-circle {
+  fill: none;
+  stroke: rgba(66, 153, 225, 0.7);
+  stroke-width: 1;
+}
+
+.diagram-text {
+  fill: rgba(255, 255, 255, 0.8);
+  font-size: 10px;
+  font-family: var(--font-space);
+}
+
+/* Technical Measurements */
+.measurement {
+  position: relative;
+  padding-left: 15px;
+}
+
+.measurement::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 10px;
+  height: 1px;
+  background-color: rgba(66, 153, 225, 0.7);
+}
+
+/* Animated Scanning Effect */
+@keyframes scan {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 0% 100%;
+  }
+}
+
+.scan-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.scan-effect::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(66, 153, 225, 0) 0%,
+    rgba(66, 153, 225, 0.2) 50%,
+    rgba(66, 153, 225, 0) 100%
+  );
+  background-size: 100% 200%;
+  animation: scan 4s linear infinite;
+  pointer-events: none;
+}
+
+/* Technical Data Display */
+.data-display {
+  font-family: monospace;
+  font-size: 0.8rem;
+  color: rgba(66, 153, 225, 0.8);
+  line-height: 1.4;
+}
+
+/* Horizontal Scrolling Container */
+.horizontal-scroll {
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+
+.horizontal-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.horizontal-scroll > * {
+  scroll-snap-align: start;
+  display: inline-block;
+}
+
+/* Technical Card */
+.tech-card {
+  background-color: rgba(30, 41, 59, 0.7);
+  border: 1px solid rgba(66, 153, 225, 0.3);
+  border-radius: 4px;
+  backdrop-filter: blur(10px);
+}
+
+/* Animated Pulse */
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.pulse {
+  animation: pulse 2s infinite;
+}
+
+/* Technical Specs List */
+.specs-list li {
+  position: relative;
+  padding-left: 15px;
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+}
+
+.specs-list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: rgba(66, 153, 225, 0.8);
+}
+
+/* Technical Heading */
+.tech-heading {
+  position: relative;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.tech-heading::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 2px;
+  background-color: rgba(66, 153, 225, 0.8);
+}
+
+/* Technical Button */
+.tech-button {
+  background-color: rgba(30, 41, 59, 0.7);
+  border: 1px solid rgba(66, 153, 225, 0.5);
+  color: rgba(255, 255, 255, 0.9);
+  padding: 8px 16px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.tech-button:hover {
+  background-color: rgba(66, 153, 225, 0.2);
+  border-color: rgba(66, 153, 225, 0.8);
+  box-shadow: 0 0 15px rgba(66, 153, 225, 0.3);
+}
+
+/* Technical Input */
+.tech-input {
+  background-color: rgba(30, 41, 59, 0.7);
+  border: 1px solid rgba(66, 153, 225, 0.3);
+  color: rgba(255, 255, 255, 0.9);
+  padding: 8px 12px;
+  border-radius: 4px;
+}
+
+.tech-input:focus {
+  border-color: rgba(66, 153, 225, 0.8);
+  box-shadow: 0 0 10px rgba(66, 153, 225, 0.2);
+  outline: none;
+}
+
+/* Technical Select */
+.tech-select {
+  background-color: rgba(30, 41, 59, 0.7);
+  border: 1px solid rgba(66, 153, 225, 0.3);
+  color: rgba(255, 255, 255, 0.9);
+  padding: 8px 12px;
+  border-radius: 4px;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='rgba(66, 153, 225, 0.8)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  background-size: 16px;
+  padding-right: 32px;
+}
+
+.tech-select:focus {
+  border-color: rgba(66, 153, 225, 0.8);
+  box-shadow: 0 0 10px rgba(66, 153, 225, 0.2);
+  outline: none;
+}
