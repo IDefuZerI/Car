@@ -29,7 +29,7 @@ function Model({ modelPath, onLoaded }) {
     useEffect(() => {
         if (scene) {
             // Reset position and rotation
-            scene.position.set(0, 0, 0)
+            scene.position.set(0, -0.2, 0)
             scene.rotation.set(0, 0, 0)
 
             // Much larger scale - 5x bigger than before
